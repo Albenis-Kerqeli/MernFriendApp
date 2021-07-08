@@ -11,7 +11,7 @@ if(name==""|| age=="") {
   alert('Please fill the fields to add any friend');
 }
 else {
-  Axios.post("http://localhost:3005/addfriend", {
+  Axios.post("https://friends-app-mern.herokuapp.com/addfriend", {
     name: name,
     age: age,
   }).then((response) => {
@@ -22,7 +22,7 @@ else {
 }
   };
 useEffect(() => {
-    Axios.get("http://localhost:3005/read")
+    Axios.get("https://friends-app-mern.herokuapp.com/read")
       .then((response) => {
         setListOfFriends(response.data);
       })
@@ -34,7 +34,7 @@ useEffect(() => {
 const updateFriend = (id) => {
   const newAge =  prompt('Enter new age:');
 
-  Axios.put('http://localhost:3005/update', {newAge:newAge , id:id}).then(() => {
+  Axios.put('https://friends-app-mern.herokuapp.com/update', {newAge:newAge , id:id}).then(() => {
     setListOfFriends(listOfFriends.map(friend => {
        return friend._id == id ? {_id:id ,name:friend.name , age:newAge} : friend
     }))
@@ -42,7 +42,7 @@ const updateFriend = (id) => {
 }
 
 const deleteFriend = (id) => {
-  Axios.delete(`http://localhost:3005/delete/${id}`).then(() => {
+  Axios.delete(`https://friends-app-mern.herokuapp.com/delete/${id}`).then(() => {
      setListOfFriends(listOfFriends.filter(friend => friend._id !== id))
   })
 }
