@@ -62,7 +62,7 @@ const deleteFriend = (id) => {
           placeholder="Friend Age"
           onChange={(e) => setAge(e.target.value)}
         />
-        <button onClick={addFriend}>Add Friend</button>
+        <button onClick={addFriend}>Add any  Friend</button>
       </div>
       <div className="listOfFriends">
         {listOfFriends.map((friend) => (
